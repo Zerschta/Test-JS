@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Hintergrundfarbe des gesamten Dokuments wird auf hellgrau gesetzt */
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 350px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Inhalt, der aus dem Container herausragt, wird ausgeblendet */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Das Grid hat drei Spalten mit einer Breite von 100px */
+    grid-template-rows: repeat(2, 100px); /* Das Grid hat zwei Zeilen mit einer Höhe von 100px */
+    gap: 10px; /* Der Abstand zwischen den Grid-Zellen beträgt 10px */
+    transition: transform 0.3s; /* Eine Transformationsübergangsdauer von 0,3 Sekunden wird festgelegt */
+}
+
+.block {
+    background-color: #3498db; /* Hintergrundfarbe der Blöcke ist ein Blauton */
+    color: white; /* Textfarbe der Blöcke ist weiß */
+    text-align: center; /* Der Text in den Blöcken wird zentriert */
+    padding: 20px; /* Ein Innenabstand von 20px wird für die Blöcke festgelegt */
+    cursor: pointer; /* Der Mauszeiger ändert sich beim Überfahren der Blöcke zu einem Zeigefinger, um anzuzeigen, dass sie anklickbar sind */
+    transition: transform 0.3s, background-color 0.3s, width 0.3s, height 0.3s, top 0.3s, left 0.3s; /* Verschiedene Eigenschaften haben eine Übergangsdauer von 0,3 Sekunden für flüssige Animationen */
+    display: flex; /* Die Blöcke werden als Flexbox-Container angezeigt */
+    justify-content: center; /* Der Inhalt der Blöcke wird horizontal zentriert */
+    align-items: center; /* Der Inhalt der Blöcke wird vertikal zentriert */
+}
+
+.block.active {
+    position: absolute; /* Der aktive Block wird aus dem normalen Fluss herausgenommen */
+    width: 150px; /* Die Breite des aktiven Blocks wird auf 150px festgelegt */
+    height: 320px; /* Die Höhe des aktiven Blocks wird auf 320px festgelegt */
+    background-color: #2ecc71; /* Die Hintergrundfarbe des aktiven Blocks ist ein Grünton */
+    top: 15px; /* Der Abstand des aktiven Blocks vom oberen Rand des Containers beträgt 15px */
+    right: 10px; /* Der Abstand des aktiven Blocks vom rechten Rand des Containers beträgt 10px */
+}
+
+.block.shrink {
+    width: 50px; /* Die Breite der verkleinerten Blöcke wird auf 50px festgelegt */
+    height: 50px; /* Die Höhe der verkleinerten Blöcke wird auf 50px festgelegt */
+    padding-right: 20px;
+    top: 10px; /* Der Abstand der verkleinerten Blöcke vom oberen Rand des Containers beträgt 10px */
+    transition: top 0.3s; /* Die Übergangsdauer für die Änderung der "top"-Eigenschaft beträgt 0,3 Sekunden */
+}
+
+.grid.inactive .block {
+    position: absolute; /* Die inaktiven Blöcke werden aus dem normalen Fluss herausgenommen */
+    transition: transform 0.3s, top 0.3s, left 0.3s, width 0.3s, height 0.3s; /* Verschiedene Eigenschaften haben eine Übergangsdauer von 0,3 Sekunden für flüssige Animationen */
+}
+
+.grid.inactive .block:nth-child(1) { left: 10px; top: 10px; } /* Die Position des ersten inaktiven Blocks wird auf 10px links und 10px oben festgelegt */
+.grid.inactive .block:nth-child(2) { left: 70px; top: 10px; } /* Die Position des zweiten inaktiven Blocks wird auf 70px links und 10px oben festgelegt */
+.grid.inactive .block:nth-child(3) { left: 130px; top: 10px; } /* Die Position des dritten inaktiven Blocks wird auf 130px links und 10px oben festgelegt */
+.grid.inactive .block:nth-child(4) { left: 190px; top: 10px; } /* Die Position des vierten inaktiven Blocks wird auf 190px links und 10px oben festgelegt */
+.grid.inactive .block:nth-child(5) { left: 250px; top: 10px; } /* Die Position des fünften inaktiven Blocks wird auf 250px links und 10px oben festgelegt */
+.grid.inactive .block:nth-child(6) { left: 310px; top: 10px; } /* Die Position des sechsten inaktiven Blocks wird auf 310px
